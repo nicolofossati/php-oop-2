@@ -1,12 +1,11 @@
 <?php
-class Food
+class Food extends Article
 {
-    public $name;
     public $calories;
 
-    public function __construct($name, $calories)
+    public function __construct($name, $price, $category, $brand, $img, $calories)
     {
-        $this->name = $name;
+        parent::__construct($name, $price, $category, $brand, $img);
         $this->calories = $calories;
     }
 }
