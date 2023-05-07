@@ -1,5 +1,5 @@
 <?php
-class Generic_product extends Article
+class Product extends Article
 {
     public $calories;
 

@@ -30,17 +30,44 @@ require __DIR__ . '/db.php';
 
 <body>
     <div class="container">
-        <div class="col-12 d-flex flex-wrap justify-content-evenly">
-            <div class="card col-3">
-                <h1 class="text-center">Pesce</h1>
-                <img src="https://www.futurapet.it/content/images/thumbs/0004006_purina-felix-le-ghiottonerie-multipack-pollo-manzo-coniglio-agnello_350.jpeg"
-                    alt="">
-                <div class="category">
-                    <i class="fa-solid fa-cat"></i>
+        <h1 class="text-center">Animal e-commerce</h1>
+        <div class="row d-flex flex-wrap justify-content-evenly">
+            <?php
+            foreach ($articles as $key => $article) {
+                ?>
+                <div class="card col-3 mx-2 my-5">
+                    <h1 class="text-center">
+                        <?php echo $article->name ?>
+                    </h1>
+                    <div>
+                        <p class="text-center">
+                            Type:
+                            <?php echo get_class($article) ?>
+                        </p>
+                    </div>
+                    <img src="<?php echo $article->img ?>" alt="">
+                    <div class="category">
+                        <i class="fa-solid fa-<?php echo $article->category ?>"></i>
+                    </div>
+                    <h3 class="text-center">
+                        <?php echo $article->brand ?>
+                    </h3>
+
+                    <div class="specific-info">
+                        <?php if (get_class($article) == 'Food') { ?>
+                            <p class="text-center">Calorie:
+                                <?php echo $article->calories; ?>
+                            </p>
+                        <?php } ?>
+                    </div>
+
+                    <h2 class="text-center">
+                        <?php echo $article->price ?>$
+                    </h2>
                 </div>
-                <h3 class="text-center">Felix</h3>
-                <h2 class="text-center">12.99$</h2>
-            </div>
+                <?php
+            }
+            ?>
         </div>
     </div>
 
