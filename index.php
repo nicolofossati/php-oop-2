@@ -2,7 +2,7 @@
 require __DIR__ . '/Models/Article.php';
 require __DIR__ . '/Models/Food.php';
 require __DIR__ . '/Models/Toy.php';
-require __DIR__ . '/Models/Generic_product.php';
+require __DIR__ . '/Models/Product.php';
 
 require __DIR__ . '/db.php';
 
@@ -57,6 +57,18 @@ require __DIR__ . '/db.php';
                         <?php if (get_class($article) == 'Food') { ?>
                             <p class="text-center">Calorie:
                                 <?php echo $article->calories; ?>
+                            </p>
+
+                        <?php }
+                        if (get_class($article) == 'Food' || get_class($article) == 'Product') { ?>
+                            <p class="text-center">Peso:
+                                <?php echo $article->weight; ?>kg
+                            </p>
+
+                        <?php }
+                        if (get_class($article) == 'Toy' || get_class($article) == 'Product') { ?>
+                            <p class="text-center">
+                                <?php echo $article->getDimension(); ?>
                             </p>
                         <?php } ?>
                     </div>
